@@ -1,0 +1,222 @@
+<h2><a href="http://kaliber5.github.io/ember-bootstrap/components/" target="_blank">ember-bootstrap components documentation</a></h2>
+<br>
+
+<!-- bs-accordion start -->
+<h2>bs-accordion and bs-accordion-item</h2>
+{{#bs-accordion selected=selected}}
+  {{#bs-accordion-item value="1" title="First item" }}
+    <p>Lorem ipsum...</p>
+  {{/bs-accordion-item}}
+  {{#bs-accordion-item value="2" title="Second item" }}
+    <p>Lorem ipsum...</p>
+  {{/bs-accordion-item}}
+  {{#bs-accordion-item value="3" title="Third item" }}
+    <p>Lorem ipsum...</p>
+  {{/bs-accordion-item}}
+{{/bs-accordion}}
+
+<p>Selected accordion item: {{selected}}</p>
+
+<hr>
+<br>
+<!-- bs-accordion bs-accordion-item end -->
+
+
+<!-- bs-alert start -->
+<h2>bs-alert</h2>
+{{#bs-alert type="success" }}
+  <strong>Well done!</strong> You successfully read this important alert message.
+{{/bs-alert}}
+
+<hr>
+<br>
+<!-- bs-alert end -->
+
+
+<!-- bs-button start -->
+<h2>bs-button</h2>
+{{#bs-button type="primary" icon="glyphicon glyphicon-download" }}
+  Downloads
+{{/bs-button}}
+
+<hr>
+<br>
+<!-- bs-button end -->
+
+
+<!-- bs-button-group start -->
+<h2>bs-button-group normal</h2>
+{{#bs-button-group}}
+  {{#bs-button}}1{{/bs-button}}
+  {{#bs-button}}2{{/bs-button}}
+  {{#bs-button}}3{{/bs-button}}
+{{/bs-button-group}}
+
+<h2>bs-button-group radio-like behavior</h2>
+{{#bs-button-group value=buttonRadioGroupValue type="radio" }}
+  {{#bs-button value=1}}1{{/bs-button}}
+  {{#bs-button value=2}}2{{/bs-button}}
+  {{#bs-button value=3}}3{{/bs-button}}
+{{/bs-button-group}}
+You selected: {{buttonRadioGroupValue}}!
+
+<h2>bs-button-group checkbox-like behavior</h2>
+{{#bs-button-group value=buttonCheckboxGroupValue type="checkbox" }}
+  {{#bs-button value=1}}1{{/bs-button}}
+  {{#bs-button value=2}}2{{/bs-button}}
+  {{#bs-button value=3}}3{{/bs-button}}
+{{/bs-button-group}}
+You selected:
+<ul>
+  {{#each buttonCheckboxGroupValue as |value|}}
+    <li>{{value}}</li>
+  {{/each}}
+</ul>
+
+<hr>
+<br>
+<!-- bs-button-group end -->
+
+
+<!-- bs-collapse start -->
+<h2>bs-collapse</h2>
+{{#bs-collapse collapsed=collapsed}}
+  <div class="well">
+    <h2>Collapse</h2>
+    <p>This is collapsible content</p>
+  </div>
+{{/bs-collapse}}
+
+<hr>
+<br>
+<!-- bs-collapse end -->
+
+
+<!-- bs-dropdown start -->
+<h2>bs-dropdown nav</h2>
+<nav class="navbar navbar-default navbar-static">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      {{#bs-dropdown tagName="li" }}
+        {{#bs-dropdown-toggle}}Dropdown <span class="caret"></span>{{/bs-dropdown-toggle}}
+        {{#bs-dropdown-menu}}
+          <li>
+            {{#link-to "my-brews"}}Something{{/link-to}}
+          </li>
+          <li>
+            {{#link-to "my-brews"}}Something different{{/link-to}}
+          </li>
+        {{/bs-dropdown-menu}}
+      {{/bs-dropdown}}
+    </ul>
+  </div>
+</nav>
+
+<br>
+
+<h2>bs-dropdown button dropdowns</h2>
+{{#bs-dropdown}}
+  {{#bs-dropdown-button}}Dropdown <span class="caret"></span>{{/bs-dropdown-button}}
+  {{#bs-dropdown-menu}}
+    <li>
+      {{#link-to "my-brews"}}Something{{/link-to}}
+    </li>
+    <li>
+      {{#link-to "my-brews"}}Something different{{/link-to}}
+    </li>
+  {{/bs-dropdown-menu}}
+{{/bs-dropdown}}
+
+<br>
+
+<h2>bs-dropdown split button dropdowns</h2>
+{{#bs-dropdown}}
+  {{#bs-button}}Dropdown{{/bs-button}}
+  {{#bs-dropdown-button}}Dropdown <span class="caret"></span>{{/bs-dropdown-button}}
+  {{#bs-dropdown-menu}}
+    <li>
+      {{#link-to "my-brews"}}Something{{/link-to}}
+    </li>
+    <li>
+      {{#link-to "my-brews"}}Something different{{/link-to}}
+    </li>
+  {{/bs-dropdown-menu}}
+{{/bs-dropdown}}
+
+<hr>
+<br>
+<!-- bs-dropdown end -->
+
+
+<!-- bs-form start -->
+<h2>bs-form</h2>
+{{#bs-form action="submit" }}
+  {{#bs-form-group validation=firstNameValidation}}
+    <label class="control-label">First name</label>
+    {{bs-input type="text" value=firstname}}
+  {{/bs-form-group}}
+{{/bs-form}}
+
+<br>
+
+<h2>Use with Components.FormElement</h2>
+{{#bs-form model=this action="submit" }}
+  {{bs-form-element controlType="email" label="Email" placeholder="Email" property="email"}} {{bs-form-element controlType="password" label="Password" placeholder="Password" property="password"}} {{bs-form-element controlType="checkbox" label="Remember me" property="rememberMe"}} {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+{{/bs-form}}
+
+<hr>
+<br>
+<!-- bs-form end -->
+
+
+<!-- bs-form-group start -->
+<h2>bs-form-group</h2>
+{{#bs-form-group validation=firstNameValidation}}
+  <label class="control-label">First name</label>
+  {{bs-input type="text" value=firstname}}
+{{/bs-form-group}}
+
+<hr>
+<br>
+<!-- bs-form-group end -->
+
+
+<!-- bs-modal start -->
+<h2>bs-modal</h2>
+<!-- openModal property is set in controllers/test-component.js -->
+{{#bs-button type="primary" action='openModal' }}
+  Open Modal
+{{/bs-button}}
+{{#bs-modal body=false footer=false header=false open=openModal}}
+  {{#bs-modal-header}}
+    <h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i> Alert</h4>
+  {{/bs-modal-header}}
+  {{#bs-modal-body}}Are you absolutely sure you want to do that???{{/bs-modal-body}}
+  {{#bs-modal-footer as |footer|}}
+    {{#bs-button action=(action "close" target=footer) type="danger" }}Oh no, forget it!{{/bs-button}}
+    {{#bs-button buttonType="submit" type="success" }}Yeah!{{/bs-button}}
+  {{/bs-modal-footer}}
+{{/bs-modal}}
+
+<hr>
+<br>
+<!-- bs-modal end -->
+
+
+<!-- bs-progress and bs-progress-bar start -->
+<!-- See controller for progressValues -->
+<h2>bs-progress and bs-progress-bar normal</h2>
+{{#bs-progress}}
+  {{bs-progress-bar value=progressValue minValue=0 maxValue=10 showLabel=true type="danger"}}
+{{/bs-progress}}
+
+<h2>bs-progress and bs-progress-bar stacked</h2>
+ {{#bs-progress}}
+   {{bs-progress-bar value=progressValue1 type="success"}}
+   {{bs-progress-bar value=progressValue2 type="warning" class="progress-bar-striped"}}
+   {{bs-progress-bar value=progressValue3 type="danger"}}
+ {{/bs-progress}}
+
+<hr>
+<br>
+<!-- bs-progress and bs-progress-bar end -->

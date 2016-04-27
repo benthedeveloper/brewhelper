@@ -1,0 +1,154 @@
+/* Make sure body isn't covered by fixed navbar */
+
+body {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  color: rgba(0, 0, 0, .87);
+}
+
+
+/* Navbar styles */
+.navbar-default {
+  background-color: #FFCA28;
+  border-color: #FFE082;
+  background-image: none;
+}
+
+.navbar-default .navbar-brand {
+  color: rgba(0,0,0,.87);
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: rgba(0,0,0,.65);
+}
+
+.navbar-default .navbar-text {
+  color: rgba(0,0,0,.87);
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: rgba(0,0,0,.87);
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: rgba(0,0,0,.65);
+}
+
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #FFCA28;
+}
+
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: rgba(0,0,0,.87);
+}
+
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: rgba(0,0,0,.65);
+  background-color: #FFE082;
+}
+
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #FFE082;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: rgba(0,0,0,.65);
+  background-color: #FFE082;
+  background-image: none;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: rgba(0,0,0,.65);
+  background-color: #FFE082;
+  background-image: none;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: rgba(0,0,0,.65);
+  background-color: #FFE082;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #FFE082;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #FFE082;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: rgba(0,0,0,.87);
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: rgba(0,0,0,.87);
+}
+
+.navbar-default .navbar-link {
+  color: rgba(0,0,0,.87);
+}
+
+.navbar-default .navbar-link:hover {
+  color: rgba(0,0,0,.65);
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: rgba(0,0,0,.87);
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: rgba(0,0,0,.65);
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: rgba(0,0,0,.65);
+    background-color: #FFE082;
+  }
+}
+/* End navbar styles */
+
+.list-group-item:first-child {
+  border-top: none;
+}
+
+.brew-item:hover {
+  background-color: #f5f5f5;
+}
+
+.brew-filter-list .list-group-item:first-child {
+  border-top: 1px solid #ddd;
+}
+
+/* Override select2 styles */
+.select2-container.form-control {
+  padding: 0;
+  border: none;
+}
+
+.select2-container.form-control .select2-choice {
+  height: 34px;
+  line-height: 34px;
+}
+
+.select2-container.form-control .select2-choice .select2-arrow b {
+  background-position-y: 4px;
+}
+/* End override select2 styles */
+
+.bottom-banner-img {
+  max-width: 250px;
+  float: right;
+}

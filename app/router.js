@@ -6,6 +6,12 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+	this.route('my-brews', function() {
+		this.route('new');
+		this.route('in-progress');
+		this.route('completed');
+	});
+  this.route('test-components');
 });
 
 export default Router;

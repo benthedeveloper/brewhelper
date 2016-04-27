@@ -1,0 +1,23 @@
+{{!-- <div class="list-group-item brew-item">
+    <div class="media">
+        <div class="media-left">
+            <img class="media-object" src="//placehold.it/64x64" alt="beerimage">
+        </div>
+        <div class="media-body">
+            <h3 class="list-group-item-heading">Some beer</h3>            
+            <p class="list-group-item-text">Clone of Deschutes Twilight Summer Ale</p>
+            <p class="list-group-item-text">Started brewing on: 4/25/2016</p>
+            <p class="list-group-item-text">OG: 1.050</p>
+            <p class="list-group-item-text">FG: 1.050</p>
+        </div>
+    </div>
+</div> --}}
+
+{{#each model as |brew|}}
+    <div>Completed brew item</div>
+{{else}}
+    <div class="list-group-item">
+        <h3 class="list-group-item-heading">No completed brews</h3>
+        <p>You haven't completed any brews yet.</p>
+    </div>
+{{/each}}

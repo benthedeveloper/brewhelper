@@ -1,3 +1,20 @@
-<h2 id="title">Welcome to Ember</h2>
+{{#bs-navbar class='navbar-default navbar-fixed-top' name='HomebrewHelper' homeRoute="my-brews"}}
+  {{#link-to "my-brews" tagName="li"}}
+	  {{#link-to "my-brews"}}My Brews{{/link-to}}
+	{{/link-to}}
+  {{#link-to "test-components" tagName="li"}}
+	  {{#link-to "test-components"}}Test components{{/link-to}}
+	{{/link-to}}
+{{/bs-navbar}}
 
-{{outlet}}
+<div class="container">
+	{{outlet}}
+</div>
+
+<footer class="navbar-default navbar-fixed-bottom">
+	<div class="container-fluid">
+		<a href="http://www.brewerydb.com/">
+			<img src="/assets/images/powered-by-brewerydb_250x63.png" alt="Powered by BreweryDB.com" class="img-responsive bottom-banner-img">
+		</a>
+	</div>
+</footer>
