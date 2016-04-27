@@ -1,6 +1,6 @@
-<div class="list-group-item">
+<div class="list-group-item clearfix">
     <h3>Create a new brew</h3>
-    {{#bs-form action="submit" }}
+    {{#bs-form}}
         {{#bs-form-group validation=nameValidation}}
             <label class="control-label" for="name">Name</label>
             {{bs-input id="name" name="name" value=name placeholder="Name your brew" maxlength="60"}}
@@ -10,23 +10,22 @@
             {{bs-textarea id="description" value=description placeholder="Enter a short description of your brew"}}
         {{/bs-form-group}}
         <!-- autocomplete input for style  -->
-				{{#bs-form-group validation=styleValidation}}
-            <label class="control-label" for="type">Type</label>
-            {{!-- {{bs-input id="type" value=type placeholder="Type of brew" maxlength="60"}} --}}
-            {{select-2
-					    placeholder="Type of brew"
-					    value=chosenTypeaheadBrew
-					    typeaheadSearchingText="Searching brews"
-					    typeaheadNoMatchesText="No brews found for '%@'"
-					    typeaheadErrorText="Loading failed: %@"
-					    minimumInputLength=2
-					    maximumInputLength=10
-					    query="queryBrews"
-						}}
+		{{#bs-form-group validation=styleValidation}}
+            <label class="control-label" for="style">Style</label>
+            {{!-- {{bs-input id="style" value=style placeholder="Style of brew" maxlength="60"}} --}}
+            {{#power-select
+              search=(action "searchStyles")
+              selected=selected
+              onchange=(action (mut selected))
+              as |style|
+            }}
+              {{style.shortName}}
+            {{/power-select}}
         {{/bs-form-group}}
 
         <div class="pull-right">
-					
+            {{#bs-button action="cancel"}}Cancel{{/bs-button}}
+            {{#bs-button type="success" action="save"}}Save{{/bs-button}}
         </div>
     {{/bs-form}}
 </div>

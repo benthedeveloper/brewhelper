@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'brewhelper',
     environment: environment,
     contentSecurityPolicy: {
-      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com http://api.brewerydb.com"
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com"
     },
     firebase: 'https://homebrewhelper.firebaseio.com/',
     baseURL: '/',

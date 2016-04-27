@@ -1,5 +1,4 @@
 /* Make sure body isn't covered by fixed navbar */
-
 body {
   padding-top: 70px;
   padding-bottom: 70px;
@@ -120,6 +119,13 @@ body {
 }
 /* End navbar styles */
 
+/* Override ember-power-select styles */
+.ember-power-select-trigger {
+    min-height: 36px;
+    line-height: 36px;
+}
+/* End override ember-power-select styles */
+
 .list-group-item:first-child {
   border-top: none;
 }
@@ -127,26 +133,6 @@ body {
 .brew-item:hover {
   background-color: #f5f5f5;
 }
-
-.brew-filter-list .list-group-item:first-child {
-  border-top: 1px solid #ddd;
-}
-
-/* Override select2 styles */
-.select2-container.form-control {
-  padding: 0;
-  border: none;
-}
-
-.select2-container.form-control .select2-choice {
-  height: 34px;
-  line-height: 34px;
-}
-
-.select2-container.form-control .select2-choice .select2-arrow b {
-  background-position-y: 4px;
-}
-/* End override select2 styles */
 
 .bottom-banner-img {
   max-width: 250px;
