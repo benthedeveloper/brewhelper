@@ -1,30 +1,31 @@
-<div class="list-group-item clearfix">
+{{#brews-tabs}}
+  <div class="list-group-item clearfix">
     <h3>Create a new brew</h3>
     {{#bs-form}}
-        {{#bs-form-group validation=nameValidation}}
-            <label class="control-label" for="name">Name</label>
-            {{bs-input id="name" name="name" value=model.name placeholder="Name your brew" maxlength="60"}}
-        {{/bs-form-group}}
-        {{#bs-form-group validation=descriptionValidation}}
-            <label class="control-label" for="description">Description</label>
-            {{bs-textarea id="description" value=model.description placeholder="Enter a short description of your brew"}}
-        {{/bs-form-group}}
-        <!-- autocomplete input for style  -->
-		{{#bs-form-group validation=styleValidation}}
-            <label class="control-label" for="style">Style</label>
-            {{#power-select
-              id="style"
-              search=(action "searchStyles")
-              selected=model.style
-              onchange=(action (mut model.style))
-              as |style|
-            }}
-              {{style.shortName}}
-            {{/power-select}}
-        {{/bs-form-group}}
+      {{#bs-form-group validation=nameValidation}}
+        <label class="control-label" for="name">Name</label>
+        {{bs-input id="name" name="name" value=model.name placeholder="Name your brew" maxlength="60"}}
+      {{/bs-form-group}}
+      {{#bs-form-group validation=descriptionValidation}}
+        <label class="control-label" for="description">Description</label>
+        {{bs-textarea id="description" value=model.description placeholder="Enter a short description of your brew"}}
+      {{/bs-form-group}}
+      <!-- autocomplete input for style  -->
+      {{#bs-form-group validation=styleValidation}}
+        <label class="control-label" for="style">Style</label>
+        {{#power-select
+          id="style"
+          search=(action "searchStyles")
+          selected=model.style
+          onchange=(action (mut model.style)) as |style|
+        }}
+          {{style.shortName}}
+        {{/power-select}}
+      {{/bs-form-group}}
 
-        <div class="pull-right">
-          <button type="submit" class="btn btn-success" {{action 'save' model}}><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
-        </div>
+      <div class="pull-right">
+        <button type="submit" class="btn btn-success" {{action 'save' model}}><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+      </div>
     {{/bs-form}}
-</div>
+  </div>
+{{/brews-tabs}}

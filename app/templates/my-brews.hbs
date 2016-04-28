@@ -1,17 +1,3 @@
 <h2>My Brews</h2>
 
-<ul class="nav nav-tabs brews-tabs">
-	{{#link-to "my-brews.in-progress" tagName="li"}}
-	  {{#link-to "my-brews.in-progress"}}In-progress (<span class="number">x</span>){{/link-to}}
-	{{/link-to}}
-  {{#link-to "my-brews.completed" tagName="li"}}
-	  {{#link-to "my-brews.completed"}}Completed (<span class="number">x</span>){{/link-to}}
-	{{/link-to}}
-	{{#link-to "my-brews.new" tagName="li"}}
-	  {{#link-to "my-brews.new"}}Create new{{/link-to}}
-	{{/link-to}}
-</ul>
-
-<div class="list-group">
-	{{outlet}}
-</div>
+{{outlet}}
