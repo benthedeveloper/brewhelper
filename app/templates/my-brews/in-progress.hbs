@@ -1,28 +1,31 @@
-{{!-- <div class="list-group-item brew-item">
-    <div class="media">
+{{#each model as |brew|}}
+  {{#unless brew.isCompleted}}
+    <div class="list-group-item brew-item">
+      <div class="media">
         <div class="media-left">
-            <img class="media-object" src="//placehold.it/64x64" alt="beerimage">
+          <i class="media-object fa fa-beer" aria-hidden="true"></i>
         </div>
         <div class="media-body">
-            <h3 class="list-group-item-heading">Summer ale</h3>            
-            <p class="list-group-item-text">Clone of Deschutes Twilight Summer Ale</p>
-            <p class="list-group-item-text">Started brewing on: 4/25/2016</p>
-            <p class="list-group-item-text">OG: 1.050</p>
-            <p class="list-group-item-text"><strong>Next step: Check SG on 5/14/2016</strong></p>
-            <div class="pull-right">
-                {{#bs-button type="primary" class="btn-sm" icon="glyphicon glyphicon-pencil" action="edit"}}Edit{{/bs-button}}
-                {{#bs-button type="success" class="btn-sm" icon="glyphicon glyphicon-ok" action="done"}}Mark as done{{/bs-button}}
-            </div>
+          <h3 class="list-group-item-heading">{{brew.name}}</h3>
+          <p class="list-group-item-text">{{brew.description}}</p>
+          <p class="list-group-item-text">Started brewing on: {{moment-format brew.dateStarted 'MM/DD/YY'}}</p>
+          {{#if brew.og}}
+            <p class="list-group-item-text">OG: {{number-format brew.og decimals=3}}</p>
+          {{/if}}
+          <!-- Handle reminders here -->
+          {{!-- <p class="list-group-item-text"><strong>Next step: Check SG on 5/14/2016</strong></p> --}}
+          <div class="pull-right">
+            <button class="btn btn-sm btn-primary" {{action 'updateBrew'}}><i class="fa fa-pencil" aria-hidden="true"></i> Update</button>
+            <button class="btn btn-sm btn-success" {{action 'completeBrew'}}><i class="fa fa-check" aria-hidden="true"></i> Mark as done</button>
+          </div>
         </div>
+      </div>
     </div>
-</div> --}}
-
-{{#each model as |brew|}}
-    <div>In-progress brew item</div>
-{{else}}
+  {{/unless}}
+  {{else}}
     <div class="list-group-item">
-        <h3 class="list-group-item-heading">No brews in-progress</h3>
-        <p>You have no brews in-progress. What are you waiting for? Do it now!</p>
-        {{#link-to 'my-brews.new' class="btn btn-primary"}}<span class="glyphicon glyphicon-plus"></span> Brew now!{{/link-to}}
+      <h3>No brews in-progress</h3>
+      <p>You have no brews in-progress. What are you waiting for? Do it now!</p>
+      {{#link-to 'my-brews.new' class="btn btn-primary" }}<span class="glyphicon glyphicon-plus"></span> Brew now!{{/link-to}}
     </div>
 {{/each}}

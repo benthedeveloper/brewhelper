@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
         run.debounce(this, this._performSearch, term, resolve, reject, 600);
       });
     }
-    
+
   },
 
   // Private method: search styles on api.brewerydb.com/v2

@@ -134,7 +134,18 @@ body {
   background-color: #f5f5f5;
 }
 
+.brew-item .media-object {
+  width: 64px;
+}
+
+.brew-item .media-object.fa {
+  font-size: 64px;
+  color: #FFD740;
+}
+
+/* Bottom banner styles */
 .bottom-banner-img {
   max-width: 250px;
   float: right;
 }
+/* End bottom banner styles */
