@@ -1,16 +1,48 @@
-<div class="col-sm-6">
-	<div class="brew-image">
-		{{#if model.img}}
-			<img src="{{model.img}}" alt="{{model.name}}" class="img-responsive">
-		{{else}}
-			<i class="fa fa-beer" aria-hidden="true"></i>
-		{{/if}}
-	</div>
-</div>
+<div class="row">
+  <div class="col-sm-6 col-md-5 col-lg-4">
+    <div class="brew-image">
+      {{#if model.img}}
+        <img src="{{model.img}}" alt="{{model.name}}" class="img-responsive">
+      {{else}}
+        <i class="fa fa-beer" aria-hidden="true"></i>
+      {{/if}}
+    </div>
+  </div>
 
-<div class="col-sm-6">
-	<h3>{{model.name}}</h3>
-	<p>{{model.description}}</p>
-	<p>Started brewing on: {{moment-format brew.dateStarted 'MM/DD/YY'}}</p>
-	{{#link-to 'my-brews'}}Back{{/link-to}}
+  <div class="col-sm-6 col-md-5 col-lg-4 clearfix">
+    {{#bs-form-group validation=nameValidation}}
+      <label for="name" class="control-label">Name</label>
+      {{bs-input id="name" type="text" class="input-lg" value=model.name}}
+    {{/bs-form-group}}
+    {{#bs-form-group validation=descriptionValidation}}
+      <label class="control-label" for="description">Description</label>
+      {{bs-textarea id="description" value=model.description placeholder="Enter a short description of your brew"}}
+    {{/bs-form-group}}
+    {{#bs-form-group validation=styleValidation}}
+        <label class="control-label" for="style">Style</label>
+        {{#power-select
+          id="style"
+          search=(action "searchStyles")
+          selected=model.style
+          onchange=(action (mut model.style)) as |style|
+        }}
+          {{style.shortName}}
+        {{/power-select}}
+      {{/bs-form-group}}
+    {{!-- <p>Started brewing on: {{moment-format brew.dateStarted 'MM/DD/YY'}}</p> --}}
+    {{#bs-form-group validation=dateValidation}}
+      <label class="control-label" for="dateStarted">Start Date</label>
+      <input type="date" class="form-control" value="{{moment-format model.dateStarted 'YYYY-MM-DD'}}">
+    {{/bs-form-group}}
+    <div class="pull-right">
+      <button type="submit" class="btn btn-default" {{action 'cancel'}}><i class="fa fa-close" aria-hidden="true"></i> Cancel</button>
+      <button type="submit" class="btn btn-success" {{action 'save' model}}><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-lg-4">
+    <h3>Style Info</h3>
+    <p>Here is some more information about the style</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
 </div>
