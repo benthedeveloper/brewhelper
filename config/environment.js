@@ -7,12 +7,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com"
     },
-    firebase: {
-      apiKey: "AIzaSyCK35eMpWeyxe1qPiFaYc_f0ekMtl3hs9w",
-      authDomain: "homebrewhelper.firebaseapp.com",
-      databaseURL: "https://homebrewhelper.firebaseio.com",
-      storageBucket: "firebase-homebrewhelper.appspot.com",
-    },
+    firebase: 'https://homebrewhelper.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -35,6 +30,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.breweryDBKey = process.env.breweryDBKey;
+    console.log('key: ' + ENV.breweryDBKey);
   }
 
   if (environment === 'test') {
