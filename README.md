@@ -18,8 +18,6 @@ You will need the following things properly installed on your computer.
 * change into the new directory
 * `npm install`
 * `bower install`
-* Get an API key from [http://www.brewerydb.com/](http://www.brewerydb.com/). It's free.
-* Follow the steps [https://www.learnhowtoprogram.com/javascript/ember-extended/api-keys-as-environment-variables](here) to use your API key as an environment variable, that way it's not visible on Github.
 
 ## Running / Development
 

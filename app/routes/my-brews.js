@@ -6,7 +6,7 @@ export default Ember.Route.extend({
 			allBrews: this.store.findAll('brew'),
 			inProgressBrews: this.store.query('brew', { filter: { isCompleted: false } }),
 			completedBrews: this.store.query('brew', { filter: { isCompleted: true } })
-		});
+		})
 	}
 
 });
