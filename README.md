@@ -1,6 +1,6 @@
 # Brewhelper
 
-An app to help you with your homebrew.
+An app to help you with your homebrew. This web app is built using Ember.
 
 ## Prerequisites
 
