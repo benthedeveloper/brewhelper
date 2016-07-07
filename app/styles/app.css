@@ -150,7 +150,6 @@ body {
   position: relative;
   min-height: 272px;
   overflow: hidden;
-  margin-bottom: 15px;
 }
 
 .brew-image:before {

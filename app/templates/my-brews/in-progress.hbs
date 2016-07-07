@@ -1,31 +1,33 @@
-{{#brews-tabs model=model}}
-  {{#each model.inProgressBrews as |brew|}}
-    <div class="list-group-item brew-item">
-      <div class="media">
-        <div class="media-left">
-          <i class="media-object fa fa-beer" aria-hidden="true"></i>
-        </div>
-        <div class="media-body">
-          <h3 class="list-group-item-heading">{{brew.name}}</h3>
-          <p class="list-group-item-text">{{brew.description}}</p>
-          <p class="list-group-item-text">Started brewing on: {{moment-format brew.dateStarted 'MM/DD/YY'}}</p>
-          {{#if brew.og}}
-            <p class="list-group-item-text">OG: {{number-format brew.og decimals=3}}</p>
-          {{/if}}
-          <!-- Handle reminders here -->
-          {{!-- <p class="list-group-item-text"><strong>Next step: Check SG on 5/14/2016</strong></p> --}}
-          <div class="pull-right">
-            {{#link-to 'my-brews.brew' brew class="btn btn-sm btn-primary"}}<i class="fa fa-pencil" aria-hidden="true"></i> Update{{/link-to}}
-            <button class="btn btn-sm btn-success" {{action 'completeBrew'}}><i class="fa fa-check" aria-hidden="true"></i> Mark as done</button>
+{{#brews-tabs}}
+  {{#each model as |brew|}}
+    {{#unless brew.isCompleted}}
+      <div class="list-group-item brew-item">
+        <div class="media">
+          <div class="media-left">
+            <i class="media-object fa fa-beer" aria-hidden="true"></i>
+          </div>
+          <div class="media-body">
+            <h3 class="list-group-item-heading">{{brew.name}}</h3>
+            <p class="list-group-item-text">{{brew.description}}</p>
+            <p class="list-group-item-text">Started brewing on: {{moment-format brew.dateStarted 'MM/DD/YY'}}</p>
+            {{#if brew.og}}
+              <p class="list-group-item-text">OG: {{number-format brew.og decimals=3}}</p>
+            {{/if}}
+            <!-- Handle reminders here -->
+            {{!-- <p class="list-group-item-text"><strong>Next step: Check SG on 5/14/2016</strong></p> --}}
+            <div class="pull-right">
+              {{#link-to 'my-brews.brew' brew class="btn btn-sm btn-primary"}}<i class="fa fa-pencil" aria-hidden="true"></i> Update{{/link-to}}
+              <button class="btn btn-sm btn-success" {{action 'completeBrew'}}><i class="fa fa-check" aria-hidden="true"></i> Mark as done</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  {{else}}
-    <div class="list-group-item">
-      <h3>No brews in-progress</h3>
-      <p>You have no brews in-progress. What are you waiting for? Do it now!</p>
-      {{#link-to 'my-brews.new' class="btn btn-primary" }}<span class="glyphicon glyphicon-plus"></span> Brew now!{{/link-to}}
-    </div>
+    {{/unless}}
+    {{else}}
+      <div class="list-group-item">
+        <h3>No brews in-progress</h3>
+        <p>You have no brews in-progress. What are you waiting for? Do it now!</p>
+        {{#link-to 'my-brews.new' class="btn btn-primary" }}<span class="glyphicon glyphicon-plus"></span> Brew now!{{/link-to}}
+      </div>
   {{/each}}
 {{/brews-tabs}}

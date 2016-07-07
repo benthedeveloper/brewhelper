@@ -22,7 +22,7 @@ export default Ember.Controller.extend({
     if (isBlank(term)) {
       return resolve([]);
     }
-    this.get('ajax').request(`search/style?q=${term}&key=${breweryDBKey}`)
+    this.get('ajax').request(`/search/style?q=${term}&key=${breweryDBKey}`)
       .then(json => resolve(json.data), reject);
   }
 

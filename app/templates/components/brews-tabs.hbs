@@ -1,19 +1,17 @@
-<div class="row">
-	<div class="col-sm-12">
-	  <ul class="nav nav-tabs">
-	    {{#link-to "my-brews.in-progress" tagName="li" }}
-	    	{{#link-to "my-brews.in-progress"}}In-progress <span class="badge">{{model.inProgressBrews.length}}</span>{{/link-to}}
-	    {{/link-to}}
-	    {{#link-to "my-brews.completed" tagName="li" }}
-	      {{#link-to "my-brews.completed"}}Completed <span class="badge">{{model.completedBrews.length}}</span>{{/link-to}}
-	    {{/link-to}}
-	    {{#link-to "my-brews.new" tagName="li" }}
-	      {{#link-to "my-brews.new"}}Create new{{/link-to}}
-	    {{/link-to}}
-	  </ul>
+<div class="col-sm-12">
+  <ul class="nav nav-tabs brews-tabs">
+    {{#link-to "my-brews.in-progress" tagName="li" }}
+      {{#link-to "my-brews.in-progress"}}In-progress (<span class="number">x</span>){{/link-to}}
+    {{/link-to}}
+    {{#link-to "my-brews.completed" tagName="li" }}
+      {{#link-to "my-brews.completed"}}Completed (<span class="number">x</span>){{/link-to}}
+    {{/link-to}}
+    {{#link-to "my-brews.new" tagName="li" }}
+      {{#link-to "my-brews.new"}}Create new{{/link-to}}
+    {{/link-to}}
+  </ul>
 
-	  <div class="list-group">
-	    {{yield}}
-	  </div>
-	</div>
+  <div class="list-group">
+    {{yield}}
+  </div>
 </div>

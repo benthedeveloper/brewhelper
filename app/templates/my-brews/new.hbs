@@ -4,7 +4,7 @@
     {{#bs-form}}
       {{#bs-form-group validation=nameValidation}}
         <label class="control-label" for="name">Name</label>
-        {{bs-input id="name" value=model.name placeholder="Name your brew" maxlength="60"}}
+        {{bs-input id="name" name="name" value=model.name placeholder="Name your brew" maxlength="60"}}
       {{/bs-form-group}}
       {{#bs-form-group validation=descriptionValidation}}
         <label class="control-label" for="description">Description</label>
@@ -22,6 +22,7 @@
           {{style.shortName}}
         {{/power-select}}
       {{/bs-form-group}}
+
       <div class="pull-right">
         <button type="submit" class="btn btn-success" {{action 'save' model}}><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
       </div>
